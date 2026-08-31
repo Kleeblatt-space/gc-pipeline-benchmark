@@ -21,11 +21,15 @@ Tilesmith speichert in der öffentlichen Benchmark-Ausführung grundsätzlich ke
 | Identifizierende Nutzerdaten | Nein | Kein Zweck im öffentlichen Benchmark |
 | Technische Hashes | Nur falls ein separater Dienst sie aktiviert | Korrelation und Abuse-Erkennung, nicht Inhaltsrekonstruktion |
 
+## Anonymisierte Telemetrie (Opt-in)
+
+Die optionale Telemetrie ist standardmäßig deaktiviert und wird nur nach ausdrücklicher Einwilligung aktiviert. Sie verarbeitet ausschließlich technische Metadaten, abstrakte Metrikwerte, Pipeline-Parameter und eine kurzfristige Hash-/HMAC-Referenz. Es werden keine Bilder, Pixeldaten, Dateinamen, Pfade oder direkten Identifikatoren übertragen oder gespeichert. Der vollständige Datenkatalog, das Opt-in-Modell und die Aufbewahrungslogik stehen in [`TELEMETRY.md`](TELEMETRY.md); das maschinenlesbare Schema liegt unter [`../telemetry/schema.json`](../telemetry/schema.json).
+
+Ein Hash ist **keine automatische Anonymisierung**. Ein stabiler oder mit Zusatzinformationen verknüpfbarer Hash kann weiterhin pseudonymisierte personenbezogene Information sein [1] [3]. Deshalb gelten für kurzfristige Telemetrie weiterhin Zweckbindung, Zugriffsbeschränkung, dokumentierte Löschfristen und Sicherheitskontrollen. Rohereignisse werden nicht unter `telemetry/private/` versioniert; der Ordner ist per `.gitignore` vollständig geschützt.
+
 ## Verantwortlichkeiten und Rechte
 
 Der konkrete Betreiber eines deployten API-Dienstes muss Verantwortlicher, Rechtsgrundlage, Empfänger, Drittlandtransfers, Betroffenenrechte, Kontaktadresse und Beschwerdestelle in einer eigenen Datenschutzerklärung festlegen. Die DSGVO verlangt transparente Informationen unter anderem zu Zweck, Datenkategorien, Rechtsgrundlage, Speicherdauer und Rechten [2].
-
-Ein Hash ist **keine automatische Anonymisierung**. Ein stabiler oder mit Zusatzinformationen verknüpfbarer Hash kann weiterhin pseudonymisierte personenbezogene Information sein [1] [3]. Daher gilt auch für Hashes Zugriffsbeschränkung, Zweckbindung, Löschfrist und Sicherheitskontrolle.
 
 ## Sicherheitsprinzipien
 

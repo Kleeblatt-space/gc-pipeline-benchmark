@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tilesmith.kleeblatt.space/telemetry/schema/v1",
+  "title": "TileSmith Optimization Telemetry Entry",
+  "description": "Schema für einen einzelnen Opt-in-Optimierungslauf ohne Bilddaten oder direkte Identifikatoren.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "timestamp", "gc_version", "profile", "score_before", "score_after", "delta", "pipeline_params", "step_order", "metadata"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "timestamp": {"type": "integer", "minimum": 0},
+    "gc_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "profile": {"type": "string", "enum": ["hd-master", "native-pixel-art", "upscaled-pixel-art", "standard-raster", "reject"]},
+    "score_before": {"$ref": "#/definitions/score_metrics"},
+    "score_after": {"$ref": "#/definitions/score_metrics"},
+    "delta": {"$ref": "#/definitions/score_metrics"},
+    "delta_total": {"type": "number", "minimum": -100, "maximum": 100},
+    "gate_before": {"$ref": "#/definitions/gate"},
+    "gate_after": {"$ref": "#/definitions/gate"},
+    "pipeline_params": {"$ref": "#/definitions/pipeline_params"},
+    "step_order": {"type": "array", "items": {"type": "string", "enum": ["crop", "seamless", "inpaint", "variation", "atlas", "export"]}, "minItems": 1, "maxItems": 6, "uniqueItems": true},
+    "metadata": {"$ref": "#/definitions/metadata"},
+    "opt_in_version": {"type": "string"},
+    "api_key_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+  },
+  "definitions": {
+    "gate": {"type": "string", "enum": ["Production", "Review", "Reject"]},
+    "score_metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["seam", "border", "artifact", "pattern", "fidelity", "textile", "total"],
+      "properties": {
+        "seam": {"type": "number", "minimum": 0, "maximum": 100},
+        "border": {"type": "number", "minimum": 0, "maximum": 100},
+        "artifact": {"type": "number", "minimum": 0, "maximum": 100},
+        "pattern": {"type": "number", "minimum": 0, "maximum": 100},
+        "fidelity": {"type": "number", "minimum": 0, "maximum": 100},
+        "textile": {"type": "number", "minimum": 0, "maximum": 100},
+        "total": {"type": "number", "minimum": 0, "maximum": 100}
+      }
+    },
+    "pipeline_params": {
+      "type": "object", "additionalProperties": true,
+      "properties": {
+        "crop": {"type": "object"}, "seamless": {"type": "object"}, "inpaint": {"type": "object"},
+        "variation": {"type": "object"}, "atlas": {"type": "object"}, "export": {"type": "object"}
+      }
+    },
+    "metadata": {
+      "type": "object", "additionalProperties": false,
+      "required": ["image_dimensions", "image_format", "processing_time_ms"],
+      "properties": {
+        "image_dimensions": {"type": "string", "pattern": "^\\d+x\\d+$"},
+        "image_format": {"type": "string", "enum": ["png", "jpg", "webp"]},
+        "image_size_bytes": {"type": "integer", "minimum": 0},
+        "processing_time_ms": {"type": "integer", "minimum": 0},
+        "runtime": {"type": "string", "enum": ["browser-worker", "node-api", "cli"]},
+        "candidate_selected": {"type": "string", "enum": ["smart-crop", "multi-edge-blend", "offset-patch"]}
+      }
+    }
+  }
+}

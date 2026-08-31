@@ -1,0 +1,9 @@
+# Niemals rohe Telemetrie-Entries oder Exporte committen.
+*
+!.gitignore
+
+# Lokale verschlüsselte Backups bleiben ebenfalls außerhalb dieses Repositorys.
+*.json
+*.ndjson
+*.csv
+*.log
