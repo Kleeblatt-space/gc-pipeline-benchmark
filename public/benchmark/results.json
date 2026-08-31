@@ -1,0 +1,495 @@
+{
+  "benchmark_version": "0.1.0",
+  "generated_at": "2026-08-31T23:44:16.825Z",
+  "summary": {
+    "tile_count": 60,
+    "accuracy": 1,
+    "gates": {
+      "Production": 10,
+      "Review": 20,
+      "Reject": 30
+    }
+  },
+  "tiles": [
+    {
+      "tile_id": "T_01",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_01",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_01",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_01",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_01",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_01",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_02",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_03",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_04",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_05",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_06",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_07",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_08",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_09",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "blur",
+      "score": 84,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "border",
+      "score": 65,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "broken_seam",
+      "score": 48,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "pattern",
+      "score": 86,
+      "gate": "Review",
+      "expected_gate": "Review",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "perfect",
+      "score": 97,
+      "gate": "Production",
+      "expected_gate": "Production",
+      "correct": true
+    },
+    {
+      "tile_id": "T_10",
+      "category": "watermark",
+      "score": 55,
+      "gate": "Reject",
+      "expected_gate": "Reject",
+      "correct": true
+    }
+  ]
+}

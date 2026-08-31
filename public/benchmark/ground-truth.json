@@ -1,0 +1,667 @@
+{
+  "benchmark_version": "0.1.0",
+  "generated_at": "2026-08-31T23:44:16.374Z",
+  "tile_count": 60,
+  "tiles": [
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_01",
+      "filename": "tile-01-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_02",
+      "filename": "tile-02-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_03",
+      "filename": "tile-03-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_04",
+      "filename": "tile-04-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_05",
+      "filename": "tile-05-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_06",
+      "filename": "tile-06-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_07",
+      "filename": "tile-07-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_08",
+      "filename": "tile-08-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_09",
+      "filename": "tile-09-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-blur.png",
+      "category": "blur",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "blur"
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-border.png",
+      "category": "border",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "border"
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-broken_seam.png",
+      "category": "broken_seam",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "broken_seam"
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-pattern.png",
+      "category": "pattern",
+      "expected_gate": "Review",
+      "expected_score_range": [
+        78,
+        91.99
+      ],
+      "injected_error": "pattern"
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-perfect.png",
+      "category": "perfect",
+      "expected_gate": "Production",
+      "expected_score_range": [
+        92,
+        100
+      ],
+      "injected_error": null
+    },
+    {
+      "tile_id": "T_10",
+      "filename": "tile-10-watermark.png",
+      "category": "watermark",
+      "expected_gate": "Reject",
+      "expected_score_range": [
+        0,
+        77.99
+      ],
+      "injected_error": "watermark"
+    }
+  ]
+}

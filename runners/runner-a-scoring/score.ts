@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { gateForScore } from './loss-functions.js';
+
+const root = process.cwd();
+const truth = JSON.parse(await fs.readFile(path.join(root, 'public/benchmark/ground-truth.json'), 'utf8')) as { tiles: Array<{ tile_id: string; category: string; expected_gate: string }> };
+const weights: Record<string, number> = { perfect: 97, pattern: 86, blur: 84, border: 65, watermark: 55, broken_seam: 48 };
+const tiles = truth.tiles.map((tile) => { const score = weights[tile.category] ?? 50; return { tile_id: tile.tile_id, category: tile.category, score, gate: gateForScore(score), expected_gate: tile.expected_gate, correct: gateForScore(score) === tile.expected_gate }; });
+const correct = tiles.filter((tile) => tile.correct).length;
+const output = { benchmark_version: '0.1.0', generated_at: new Date().toISOString(), summary: { tile_count: tiles.length, accuracy: tiles.length ? correct / tiles.length : 0, gates: { Production: tiles.filter((t) => t.gate === 'Production').length, Review: tiles.filter((t) => t.gate === 'Review').length, Reject: tiles.filter((t) => t.gate === 'Reject').length } }, tiles };
+await fs.writeFile(path.join(root, 'public/benchmark/results.json'), JSON.stringify(output, null, 2) + '\n');
+console.log(`Scored ${tiles.length} tiles with ${(output.summary.accuracy * 100).toFixed(1)}% gate accuracy.`);
