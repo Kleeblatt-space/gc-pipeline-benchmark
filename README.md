@@ -18,11 +18,11 @@ Ohne externe Assets erzeugt der Generator zehn deterministische SVG-Basistiles a
 
 | Bereich | Zweck |
 |---|---|
-| `docs/` | Öffentliche Spezifikation und Feldstudie |
+| `docs/` | Öffentliche Spezifikation, Datenschutz und Feldstudie |
 | `public/benchmark/` | Dataset, Ground Truth und veröffentlichte Resultate |
 | `scripts/` | Deterministische Daten- und Validierungsskripte |
 | `runners/` | Scoring- und Pipeline-Optimierer |
 | `config/` | Proprietäre, lokal erzeugte Parameter |
 | `field-study-01/` | Aggregierte Analyse ohne Rohbilder |
 
-Die Bewertungsstufen sind **Production** ab 92, **Review** von 78 bis 91,99 und **Reject** unter 78. Das öffentliche Schema und die Lizenzgrenzen sind in [`docs/QUALITY_SCORING.md`](docs/QUALITY_SCORING.md), [`docs/API.md`](docs/API.md) und [`docs/SCORING_INTERNALS.md`](docs/SCORING_INTERNALS.md) beschrieben.
+Die Bewertungsstufen sind **Production** ab 92, **Review** von 78 bis 91,99 und **Reject** unter 78. Das öffentliche Schema und die Lizenzgrenzen sind in [`docs/QUALITY_SCORING.md`](docs/QUALITY_SCORING.md), [`docs/API.md`](docs/API.md) und [`docs/SCORING_INTERNALS.md`](docs/SCORING_INTERNALS.md) beschrieben. Datenschutz, Nutzungsbedingungen und Aufbewahrungslogik stehen in [`docs/PRIVACY.md`](docs/PRIVACY.md), [`docs/TERMS.md`](docs/TERMS.md) und [`docs/DATA_RETENTION.md`](docs/DATA_RETENTION.md). Diese Texte sind Arbeitsentwürfe und müssen vor einem produktiven Dienst rechtlich geprüft werden.
