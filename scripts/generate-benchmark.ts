@@ -24,7 +24,7 @@ async function ensureBaseTiles() {
 }
 
 async function inject(input: Buffer, category: typeof categories[number]) {
-  const image = sharp(input);
+  const image = sharp(input).resize(size, size, { kernel: sharp.kernel.nearest });
   if (category === 'perfect') return image.png().toBuffer();
   if (category === 'blur') return image.resize(64, 64).resize(size, size, { kernel: sharp.kernel.cubic }).png().toBuffer();
   if (category === 'broken_seam') return image.extract({ left: 3, top: 0, width: size - 3, height: size }).extend({ left: 3, background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
