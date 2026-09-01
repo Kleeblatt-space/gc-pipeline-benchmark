@@ -13,6 +13,7 @@ These files are separate from the active 16x16 pixel-art base set. They are 1K P
 | metal | CorrugatedSteel005 | https://ambientcg.com/a/CorrugatedSteel005 |
 | lava | Lava002 | https://ambientcg.com/a/Lava002 |
 | snow | Snow002 | https://ambientcg.com/a/Snow002 |
+| ground-alt | Ground029 | https://ambientcg.com/a/Ground029 |
 
 All downloadable ambientCG assets are provided under CC0 according to https://docs.ambientcg.com/license/.
 Water002, CorrugatedIron001 and Sand002 from the original notes were unavailable at download time; replacements are explicitly named above rather than silently substituted.
