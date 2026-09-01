@@ -50,7 +50,7 @@ npm run benchmark
 npm run validate
 ```
 
-Der Generator erzeugt ohne externe Assets zehn deterministische lokale Fallback-Tiles und daraus 60 Fixtures in sechs Fehlerkategorien. Eigene, entsprechend lizenzierte Base-Tiles können unter `assets/base/` abgelegt werden.
+Der Generator erzeugt ohne externe Assets zehn deterministische lokale Fallback-Tiles und daraus 60 Fixtures in sechs Fehlerkategorien. Eigene, entsprechend lizenzierte Base-Tiles können unter `assets/base/` abgelegt werden. Für das HD-Set liegen derzeit neun verifizierte 1024×1024-Color-Maps aus AmbientCG unter `assets/base/1024x1024/`; Quellen und Lizenznachweise stehen in [`assets/base/1024x1024/SOURCES.md`](assets/base/1024x1024/SOURCES.md). `npm run assets:verify` prüft Format und Abmessungen. Die in den Notizen genannte `Water002`-ID ist aktuell nicht erreichbar und wurde deshalb nicht durch ein ungeprüftes Ersatzbild ersetzt.
 
 ## TileFixFireflyDoctor-Core
 
