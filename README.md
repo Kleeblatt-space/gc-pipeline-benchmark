@@ -1,6 +1,43 @@
-# Tilesmith Benchmark
+# TileSmith GC-Pipeline Benchmark
 
-Tilesmith Benchmark ist ein reproduzierbares Test- und Optimierungsgerüst für die technische Qualität von Game-Ready-Tiles. Es trennt **Scoring** (Qualitätsmessung) und **Pipeline-Optimierung** (Verbesserung der Eingabedaten) und macht die öffentlichen Benchmark-Artefakte versionierbar.
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/Docs-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![Dataset: CC0](https://img.shields.io/badge/Dataset-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/) [![Spec Version](https://img.shields.io/badge/Spec%20Version-1.0.0-green.svg)](docs/QUALITY_SCORING.md) [![Benchmark CI](https://github.com/Kleeblatt-space/gc-pipeline-benchmark/actions/workflows/run-benchmark-ci.yml/badge.svg)](https://github.com/Kleeblatt-space/gc-pipeline-benchmark/actions/workflows/run-benchmark-ci.yml)
+
+> **Reproduzierbare, automatisierte Qualitätskontrolle für Game-Ready-Tiles.** Dieses Repository enthält das öffentliche Benchmark-Framework, synthetische Ground-Truth-Daten, Optimierungs-Runner und die technische Telemetrie-Spezifikation von TileSmith.
+
+## Problem
+
+Visuell überzeugende, generierte Texturen können in Game-Engines an technischen Details scheitern: an 1-Pixel-Rändern, sichtbaren Wasserzeichen, regelmäßigen Musterwiederholungen, gebrochenen Nähten oder zu geringer Fidelity. Der Benchmark macht diese Fehler messbar und schafft einen nachvollziehbaren Standard für die technische Prüfung.
+
+## Lösung: Dual-Optimization Architecture
+
+TileSmith trennt die Qualitätsmessung von der aktiven Verbesserung. Beide Prozesse können iterativ zusammengeführt werden, ohne die öffentliche Ground Truth oder proprietäre Tuning-Parameter zu vermischen.
+
+```mermaid
+graph LR
+    A[Raw Tile] --> B[Runner A: Scoring]
+    B --> C{Gate}
+    C -->|Production >= 92| P[Production]
+    C -->|Review 78-<92| R[Review]
+    C -->|Reject <78| X[Reject]
+    A --> D[Runner B: Pipeline Optimization]
+    D --> E[Optimized Tile]
+    E --> B
+```
+
+**Runner A** bewertet sechs Metriken: Seam, Border, Artifact, Pattern, Fidelity und Textile. **Runner B** optimiert Pipeline-Parameter und die Schritt-Reihenfolge, wobei harte Abhängigkeiten und Degradationsstrafen berücksichtigt werden. Die öffentliche Baseline ist reproduzierbar; produktive Core-Modelle und finale Gewichte sind nicht Bestandteil dieses Repositories.
+
+## Repository-Struktur und Offenlegung
+
+| Verzeichnis | Zweck | Offenlegung |
+|---|---|---|
+| `docs/` | Qualitäts-, API-, Datenschutz-, Telemetrie- und Feldstudien-Dokumentation | Öffentlich, je Dokument lizenziert |
+| `public/benchmark/` | 60 synthetische Tiles, Ground Truth und Ergebnisse | CC0 für synthetische Fixtures |
+| `scripts/` | Generatoren und Validierung | Öffentliche Referenzimplementierung |
+| `runners/` | Scoring- und Pipeline-Optimierungsgrundgerüste | Öffentliche Baseline |
+| `telemetry/` | Opt-in-Schema, Aggregate-Fixtures und private Ablagegrenzen | Schema MIT; Rohdaten niemals in Git |
+| `config/` | Lokal erzeugte Tuning-Parameter | Geschlossen und per `.gitignore` ausgeschlossen |
+
+> **Zwei-Repo-Strategie:** Dieses öffentliche Repository enthält keine Secrets, CNN-/ONNX-Gewichte oder finalen produktiven Tuning-Parameter. Eine separate private Core-Distribution kann proprietäre Scoring-Interna, Modelle und `config/tunable*.json` enthalten. Die öffentliche `SCORING_INTERNALS.md` dokumentiert nur die Offenlegungsgrenze und ist keine Ablage vertraulicher Modelle.
 
 ## Schnellstart
 
@@ -12,18 +49,29 @@ npm run benchmark
 npm run validate
 ```
 
-Ohne externe Assets erzeugt der Generator zehn deterministische SVG-Basistiles als lokale Fallback-Fixtures. Lizenzierte Base-Tiles können unter `assets/base/` abgelegt werden; der Generator verwendet sie automatisch, wenn sie vorhanden sind.
+Der Generator erzeugt ohne externe Assets zehn deterministische lokale Fallback-Tiles und daraus 60 Fixtures in sechs Fehlerkategorien. Eigene, entsprechend lizenzierte Base-Tiles können unter `assets/base/` abgelegt werden.
 
-## Struktur
+## Telemetrie und Datenschutz
 
-| Bereich | Zweck |
+Die optionale Telemetrie ist standardmäßig deaktiviert. Sie ist auf numerische Parameter-Outcome-Beziehungen ausgelegt und speichert in der Referenzarchitektur keine Bildbytes, Pixeldaten, Dateinamen oder direkten Identifikatoren. Hashes sind nicht automatisch anonym; deshalb sind Zweckbindung, Zugriffsschutz, TTL und Löschprozesse erforderlich.
+
+Weitere Informationen: [`docs/PRIVACY.md`](docs/PRIVACY.md), [`docs/TELEMETRY.md`](docs/TELEMETRY.md), [`docs/DATA_RETENTION.md`](docs/DATA_RETENTION.md), [`telemetry/schema.json`](telemetry/schema.json) und [`telemetry/README.md`](telemetry/README.md).
+
+## Field Study
+
+`docs/FIELD_STUDY_01.md` und `field-study-01/report-draft.md` enthalten die Methodik und den Entwurf für eine Untersuchung von 50 frei verfügbaren Asset-Packs. Verifizierte reale Ergebnisse werden erst veröffentlicht, wenn Datengrundlage, Lizenzen und Auswertung dokumentiert sind; die aktuellen Aggregate-Fixtures sind leer und keine Marktstatistik.
+
+## Mitwirken und nächste Schritte
+
+Führe den Schnellstart aus, prüfe `public/benchmark/results.json` und melde reproduzierbare Fehler oder Scoring-Lücken als GitHub Issue. Beiträge müssen die jeweiligen Lizenzhinweise und die Trennung zwischen öffentlichen Fixtures und proprietären Parametern respektieren.
+
+Die Benchmark-Fixtures sind CC0, Dokumentation und Schema tragen die in den Dateien genannten Lizenzen. Die Core-Engine, produktive Modelle und finale Tuning-Konfigurationen können proprietär bleiben. Rechtliche und datenschutzbezogene Texte sind technische Arbeitsgrundlagen und sollten vor einem produktiven Dienst von qualifizierten Fachleuten geprüft werden.
+
+## Lizenzübersicht
+
+| Inhalt | Lizenz |
 |---|---|
-| `docs/` | Öffentliche Spezifikation, Datenschutz und Feldstudie |
-| `public/benchmark/` | Dataset, Ground Truth und veröffentlichte Resultate |
-| `scripts/` | Deterministische Daten- und Validierungsskripte |
-| `runners/` | Scoring- und Pipeline-Optimierer |
-| `config/` | Proprietäre, lokal erzeugte Parameter |
-| `field-study-01/` | Aggregierte Analyse ohne Rohbilder |
-| `telemetry/` | Opt-in-Schema, öffentliche Aggregate und geschützte Raw-Entry-Ablage |
-
-Die Bewertungsstufen sind **Production** ab 92, **Review** von 78 bis 91,99 und **Reject** unter 78. Das öffentliche Schema und die Lizenzgrenzen sind in [`docs/QUALITY_SCORING.md`](docs/QUALITY_SCORING.md), [`docs/API.md`](docs/API.md) und [`docs/SCORING_INTERNALS.md`](docs/SCORING_INTERNALS.md) beschrieben. Datenschutz, Nutzungsbedingungen und Aufbewahrungslogik stehen in [`docs/PRIVACY.md`](docs/PRIVACY.md), [`docs/TERMS.md`](docs/TERMS.md) und [`docs/DATA_RETENTION.md`](docs/DATA_RETENTION.md). Das Telemetrie-Konzept und die öffentliche Datenstruktur sind in [`docs/TELEMETRY.md`](docs/TELEMETRY.md) und [`telemetry/README.md`](telemetry/README.md) beschrieben. Diese Texte sind Arbeitsentwürfe und müssen vor einem produktiven Dienst rechtlich geprüft werden.
+| Synthetische Benchmark-Fixtures | CC0, sofern in der Datei nicht anders angegeben |
+| Qualitäts- und Telemetriedokumentation | Siehe jeweilige Datei, überwiegend CC BY-SA 4.0 |
+| Telemetrie-Schema | MIT |
+| Root-Repository und interne Tooling-Bestandteile | Siehe `LICENSE` und Datei-Hinweise |

@@ -5,6 +5,7 @@ Dieses Verzeichnis enthält die technische Telemetrie-Schnittstelle des Benchmar
 | Pfad | Zweck | Lizenz/Status |
 |---|---|---|
 | `schema.json` | JSON-Schema für einzelne Opt-in-Einträge | MIT |
+| `optimization-entry.example.json` | Schema-konformes Beispiel ohne reale Bild- oder Nutzerdaten | MIT |
 | `aggregated/` | Öffentlich veröffentlichte, aggregierte Statistiken | CC0; nur nach Disclosure-Review |
 | `private/` | Lokaler oder verschlüsselter Speicher für Roh-Entries | nicht versioniert |
 | `../docs/TELEMETRY.md` | Opt-in, Zweck, Aufbewahrung und Rechte | CC BY-SA 4.0 |

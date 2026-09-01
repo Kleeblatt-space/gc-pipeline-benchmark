@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "timestamp": 1735689600000,
+  "gc_version": "2.5.0",
+  "profile": "standard-raster",
+  "score_before": {
+    "seam": 62,
+    "border": 45,
+    "artifact": 30,
+    "pattern": 88,
+    "fidelity": 95,
+    "textile": 70,
+    "total": 65
+  },
+  "score_after": {
+    "seam": 94,
+    "border": 98,
+    "artifact": 99,
+    "pattern": 87,
+    "fidelity": 93,
+    "textile": 89,
+    "total": 93
+  },
+  "delta": {
+    "seam": 32,
+    "border": 53,
+    "artifact": 69,
+    "pattern": -1,
+    "fidelity": -2,
+    "textile": 19,
+    "total": 28
+  },
+  "delta_total": 28,
+  "gate_before": "Reject",
+  "gate_after": "Production",
+  "pipeline_params": {
+    "crop": {"margin_px": 2},
+    "seamless": {"blend_strength": 0.7},
+    "inpaint": {"patch_size_px": 16},
+    "variation": {},
+    "atlas": {},
+    "export": {}
+  },
+  "step_order": ["crop", "seamless", "inpaint", "variation", "atlas", "export"],
+  "metadata": {
+    "image_dimensions": "512x512",
+    "image_format": "png",
+    "processing_time_ms": 342,
+    "runtime": "node-api",
+    "candidate_selected": "multi-edge-blend"
+  },
+  "opt_in_version": "1.0.0"
+}
