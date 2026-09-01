@@ -19,9 +19,8 @@
     "export:public": "npm run export-public",
     "core:check": "bash scripts/check-core-submodule.sh",
     "core:smoke": "tsx internal/test-import.ts",
-    "assets:fetch": "bash scripts/fetch-ambientcg-assets.sh",
     "assets:pixel-fetch": "python3 scripts/fetch-pixel-base-tiles.py",
-    "assets:verify": "python3 scripts/verify-assets.py",
+    "assets:verify": "python3 scripts/verify-pixel-base-tiles.py",
     "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {

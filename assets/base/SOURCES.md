@@ -15,10 +15,10 @@ Auswahl der Spritesheet-Zellen (Spalte, Zeile; 1px Rasterabstand):
 | base-03.png | (6, 0) | Grauer Steinboden |
 | base-04.png | (7, 0) | Heller Stein-/Sandboden |
 | base-05.png | (8, 0) | Heller Fliesenboden |
-| base-06.png | (5, 5) | Strukturierter Erd-/Holzboden |
-| base-07.png | (10, 7) | Wasserfläche |
-| base-08.png | (11, 7) | Wasserfläche |
-| base-09.png | (10, 10) | Grasfläche |
-| base-10.png | (11, 10) | Grasfläche |
+| base-06.png | (9, 0) | Dunkler Boden |
+| base-07.png | (5, 1) | Erd-/Bodenvariante |
+| base-08.png | (6, 1) | Steinvariante |
+| base-09.png | (7, 1) | Helle Bodenvariante |
+| base-10.png | (8, 1) | Helle Fliesenvariante |
 
 Die Originaldatei `KENNEY_LICENSE.txt` wird neben den Tiles abgelegt.
