@@ -1,0 +1,4 @@
+[submodule "tilefix-core"]
+	path = tilefix-core
+	url = https://github.com/duduspieleklee-create/TileFixFireflyDoctor.git
+	branch = main

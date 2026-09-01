@@ -12,6 +12,7 @@
     "optimize:pipeline": "tsx runners/runner-b-pipeline/optimize.ts",
     "validate": "tsx scripts/validate-benchmark.ts",
     "export:public": "bash scripts/export-public.sh",
+    "core:check": "bash scripts/check-core-submodule.sh",
     "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": { "fs-extra": "^11.2.0", "sharp": "^0.33.5" },

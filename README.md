@@ -36,6 +36,7 @@ graph LR
 | `runners/` | Scoring- und Pipeline-Optimierungsgrundgerüste | Öffentliche Baseline |
 | `telemetry/` | Opt-in-Schema, Aggregate-Fixtures und private Ablagegrenzen | Schema MIT; Rohdaten niemals in Git |
 | `config/` | Lokal erzeugte Tuning-Parameter | Geschlossen und per `.gitignore` ausgeschlossen |
+| `tilefix-core/` | Eingebundener TileFixFireflyDoctor-Core als Git-Submodule | Externer Commit, im Parent-Repo gepinnt |
 
 > **Zwei-Repo-Strategie:** Dieses öffentliche Repository enthält keine Secrets, CNN-/ONNX-Gewichte oder finalen produktiven Tuning-Parameter. Eine separate private Core-Distribution kann proprietäre Scoring-Interna, Modelle und `config/tunable*.json` enthalten. Die öffentliche `SCORING_INTERNALS.md` dokumentiert nur die Offenlegungsgrenze und ist keine Ablage vertraulicher Modelle.
 
@@ -50,6 +51,23 @@ npm run validate
 ```
 
 Der Generator erzeugt ohne externe Assets zehn deterministische lokale Fallback-Tiles und daraus 60 Fixtures in sechs Fehlerkategorien. Eigene, entsprechend lizenzierte Base-Tiles können unter `assets/base/` abgelegt werden.
+
+## TileFixFireflyDoctor-Core
+
+Der produktive Core wird aus [`duduspieleklee-create/TileFixFireflyDoctor`](https://github.com/duduspieleklee-create/TileFixFireflyDoctor) als Submodule unter `tilefix-core/` eingebunden. Das Parent-Repository speichert einen konkreten Core-Commit und bleibt dadurch reproduzierbar; Updates werden bewusst geprüft und anschließend als neuer Submodule-Pointer committed.
+
+```bash
+git clone --recurse-submodules https://github.com/Kleeblatt-space/gc-pipeline-benchmark.git
+# Bei einem bestehenden Checkout:
+git submodule update --init --recursive
+npm run core:check
+# Geprüftes Update auf den neuesten main-Stand:
+git submodule update --remote --merge tilefix-core
+git add .gitmodules tilefix-core
+git commit -m "chore: update tilefix-core submodule"
+```
+
+`npm run core:check` prüft den ausgecheckten Commit sowie die erwarteten Core-Einstiegspunkte, bevor Runner oder Integrationsprüfungen ausgeführt werden.
 
 ## Telemetrie und Datenschutz
 
