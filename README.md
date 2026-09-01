@@ -69,6 +69,8 @@ git commit -m "chore: update tilefix-core submodule"
 
 `npm run core:check` prüft den ausgecheckten Commit sowie die erwarteten Core-Einstiegspunkte, bevor Runner oder Integrationsprüfungen ausgeführt werden.
 
+`tilefix-core` wird nicht als öffentliches npm-Paket und nicht als kopierter Source-Code in diesem Repository verwaltet. Das Submodule dient ausschließlich als reproduzierbar gepinnter Teststand; die produktive Optimierungs-Engine bleibt eine proprietäre Black Box und wird über die TileSmith API oder Studio App bereitgestellt. Der Public-Export unter `scripts/export-public.sh` enthält das Submodule nicht.
+
 ## Telemetrie und Datenschutz
 
 Die optionale Telemetrie ist standardmäßig deaktiviert. Sie ist auf numerische Parameter-Outcome-Beziehungen ausgelegt und speichert in der Referenzarchitektur keine Bildbytes, Pixeldaten, Dateinamen oder direkten Identifikatoren. Hashes sind nicht automatisch anonym; deshalb sind Zweckbindung, Zugriffsschutz, TTL und Löschprozesse erforderlich.

@@ -1,20 +1,32 @@
 {
-  "name": "tilesmith-benchmark",
-  "version": "0.1.0",
+  "name": "gc-pipeline-benchmark",
+  "version": "1.0.0",
   "private": true,
-  "description": "Reproducible quality benchmark and optimization runners for game-ready tiles.",
+  "description": "Internal benchmark & auto-tuning framework for TileSmith GC Pipeline",
   "type": "module",
   "scripts": {
     "generate": "tsx scripts/generate-benchmark.ts",
+    "generate-benchmark": "npm run generate",
     "ground-truth": "tsx scripts/generate-ground-truth.ts",
     "benchmark": "tsx runners/runner-a-scoring/score.ts",
-    "optimize:scoring": "tsx runners/runner-a-scoring/optimize.ts",
-    "optimize:pipeline": "tsx runners/runner-b-pipeline/optimize.ts",
+    "tune:scoring": "tsx runners/runner-a-scoring/optimize.ts",
+    "optimize:scoring": "npm run tune:scoring",
+    "tune:pipeline": "tsx runners/runner-b-pipeline/optimize.ts",
+    "optimize:pipeline": "npm run tune:pipeline",
     "validate": "tsx scripts/validate-benchmark.ts",
-    "export:public": "bash scripts/export-public.sh",
+    "validate-results": "npm run validate",
+    "export-public": "bash scripts/export-public.sh",
+    "export:public": "npm run export-public",
     "core:check": "bash scripts/check-core-submodule.sh",
     "test": "tsx --test tests/*.test.ts"
   },
-  "dependencies": { "fs-extra": "^11.2.0", "sharp": "^0.33.5" },
-  "devDependencies": { "@types/node": "^22.0.0", "tsx": "^4.19.0", "typescript": "^5.6.0" }
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.3.0"
+  }
 }
