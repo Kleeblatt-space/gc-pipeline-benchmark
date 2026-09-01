@@ -50,7 +50,7 @@ npm run benchmark
 npm run validate
 ```
 
-Der Generator verwendet zehn echte 16×16-Pixel-Art-Topdown-Tiles aus dem offiziellen Kenney Roguelike/RPG-Pack und erzeugt daraus 60 Fixtures in sechs Fehlerkategorien. Quellen, Auswahlkoordinaten und CC0-Nachweis stehen in [`assets/base/SOURCES.md`](assets/base/SOURCES.md); die ursprüngliche Lizenzdatei liegt als [`assets/base/KENNEY_LICENSE.txt`](assets/base/KENNEY_LICENSE.txt) bei. Mit `npm run assets:pixel-fetch` werden die Tiles reproduzierbar aus dem Originalpack extrahiert, und `npm run assets:verify` prüft die Abmessungen. Zusätzlich liegen die fotorealistischen HD-Referenzbilder getrennt unter [`assets/hd/`](assets/hd/) und werden nicht mit den Pixel-Art-Bases vermischt; sie können mit `npm run assets:hd-fetch` wiederhergestellt werden.
+Der Benchmark-v2-Generator verwendet zehn echte 16×16-Pixel-Art-Topdown-Tiles und zehn 1024×1024-HD-Referenzbilder. Daraus entstehen **120 Fixtures** in sechs Fehlerkategorien: 60 Ausgaben unter `public/benchmark/dataset/16x16/` sowie 60 auf 64×64 normalisierte HD-Ausgaben unter `public/benchmark/dataset/64x64/`. Quellen, Auswahlkoordinaten und CC0-Nachweis stehen in [`assets/base/SOURCES.md`](assets/base/SOURCES.md); die ursprüngliche Lizenzdatei liegt als [`assets/base/KENNEY_LICENSE.txt`](assets/base/KENNEY_LICENSE.txt) bei. Mit `npm run assets:pixel-fetch` werden die Pixel-Art-Tiles reproduzierbar extrahiert, `npm run assets:hd-fetch` stellt die zehn HD-Referenzen wieder her, und `npm run assets:verify` prüft das Pixel-Art-Set. Die Ausgaben werden mit `npm run generate`, `npm run ground-truth` und `npm run validate` erzeugt und geprüft.
 
 ## TileFixFireflyDoctor-Core
 

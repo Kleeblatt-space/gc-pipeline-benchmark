@@ -5,15 +5,16 @@
   "description": "Internal benchmark & auto-tuning framework for TileSmith GC Pipeline",
   "type": "module",
   "scripts": {
-    "generate": "tsx scripts/generate-benchmark.ts",
+    "generate": "node scripts/generate-benchmark.mjs",
+    "ground-truth": "node scripts/generate-ground-truth.mjs",
     "generate-benchmark": "npm run generate",
-    "ground-truth": "tsx scripts/generate-ground-truth.ts",
+    "test:import": "tsx internal/test-import.ts",
     "benchmark": "tsx runners/runner-a-scoring/score.ts",
     "tune:scoring": "tsx runners/runner-a-scoring/optimize.ts",
     "optimize:scoring": "npm run tune:scoring",
     "tune:pipeline": "tsx runners/runner-b-pipeline/optimize.ts",
     "optimize:pipeline": "npm run tune:pipeline",
-    "validate": "tsx scripts/validate-benchmark.ts",
+    "validate": "node scripts/validate-results.mjs",
     "validate-results": "npm run validate",
     "export-public": "bash scripts/export-public.sh",
     "export:public": "npm run export-public",
@@ -22,6 +23,7 @@
     "assets:pixel-fetch": "python3 scripts/fetch-pixel-base-tiles.py",
     "assets:hd-fetch": "bash scripts/fetch-hd-reference-assets.sh",
     "assets:verify": "python3 scripts/verify-pixel-base-tiles.py",
+    "test:baseline": "node scripts/test-pipeline-on-perfect.mjs",
     "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
