@@ -67,7 +67,7 @@ git add .gitmodules tilefix-core
 git commit -m "chore: update tilefix-core submodule"
 ```
 
-`npm run core:check` prüft den ausgecheckten Commit sowie die erwarteten Core-Einstiegspunkte, bevor Runner oder Integrationsprüfungen ausgeführt werden.
+`npm run core:check` prüft den ausgecheckten Commit sowie die erwarteten Core-Einstiegspunkte, bevor Runner oder Integrationsprüfungen ausgeführt werden. `npm run core:smoke` lädt den tatsächlich exportierten Core direkt aus dem Submodule und prüft `evaluateQuality` sowie `calculateSeamMetrics`.
 
 `tilefix-core` wird nicht als öffentliches npm-Paket und nicht als kopierter Source-Code in diesem Repository verwaltet. Das Submodule dient ausschließlich als reproduzierbar gepinnter Teststand; die produktive Optimierungs-Engine bleibt eine proprietäre Black Box und wird über die TileSmith API oder Studio App bereitgestellt. Der Public-Export unter `scripts/export-public.sh` enthält das Submodule nicht.
 
