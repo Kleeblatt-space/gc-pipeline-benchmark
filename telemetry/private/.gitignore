@@ -1,6 +1,8 @@
 # Niemals rohe Telemetrie-Entries oder Exporte committen.
 *
 !.gitignore
+!raw-entries/
+!raw-entries/.gitkeep
 
 # Lokale verschlüsselte Backups bleiben ebenfalls außerhalb dieses Repositorys.
 *.json

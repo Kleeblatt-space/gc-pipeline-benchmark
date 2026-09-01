@@ -31,7 +31,11 @@ Ein Widerruf löst die Löschung zuordenbarer kurzfristiger Einträge innerhalb 
 
 Opt-in-Ereignisse werden zunächst kurzfristig gespeichert, anschließend aggregiert und ohne Rohereignisse zur Verbesserung von Runner B verwendet. Veröffentlicht werden ausschließlich Schwellenwert- und Aggregatstatistiken, etwa Parameterkorrelationen, erfolgreiche Step Orders und Fehlerverteilungen. Kleine Gruppen dürfen nicht veröffentlicht werden, wenn eine Zuordnung einzelner Runs dadurch erleichtert würde.
 
-## 4. Aufbewahrung und Infrastruktur
+## 4. Aggregierte öffentliche Daten
+
+Öffentliche Aggregate werden erst nach Disclosure- und Re-Identifikationsprüfung veröffentlicht. Die vorgesehenen Ausgabepfade sind [`param-correlations.json`](../telemetry/aggregated/param-correlations.json), [`best-step-orders.json`](../telemetry/aggregated/best-step-orders.json) und [`profile-benchmarks.json`](../telemetry/aggregated/profile-benchmarks.json). Aktuell enthalten diese Dateien nur leere Fixtures und keine reale Nutzungsstatistik.
+
+## 5. Aufbewahrung und Infrastruktur
 
 | Datenart | Speicher | Frist |
 |---|---|---:|
@@ -41,7 +45,11 @@ Opt-in-Ereignisse werden zunächst kurzfristig gespeichert, anschließend aggreg
 
 Die tatsächliche Infrastruktur, Verschlüsselung, Zugriffskontrolle, Secret-Rotation, Drittlandtransfers und Löschjobs müssen vom jeweiligen Betreiber verbindlich dokumentiert werden. Siehe [`DATA_RETENTION.md`](DATA_RETENTION.md).
 
-## 5. Rechtsgrundlage und Kontakt
+## 6. Hypothetisches Revenue-Share-Modell
+
+Ein mögliches Revenue-Share-Programm ist **nicht aktiv und keine Zusage**. Eine spätere Lizenzierung aggregierter Datensätze, mögliche Beitragsquoten, Mindestzahlungen, Schwellenwerte und Verteilungslogik würden nur nach separater vertraglicher Regelung, transparenter Einwilligung und rechtlicher Prüfung gelten. Bis dahin gibt es weder eine Vergütungspflicht noch einen Anspruch auf künftige Einnahmen.
+
+## 7. Rechtsgrundlage und Kontakt
 
 Für die geplante freiwillige Produktverbesserung ist **Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO** vorgesehen. Zweckbindung, Datenminimierung, Transparenz, Widerruf und Löschung sind in der produktiven Datenschutzerklärung des Betreibers zu konkretisieren. Datenschutzanfragen: `privacy@tilesmith.kleeblatt.space`; technische Fragen: GitHub Issue.
 
