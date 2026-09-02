@@ -1,0 +1,43 @@
+name: TileSmith QC dogfooding
+
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - '.github/workflows/tilesmith-dogfooding.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  tilesmith-qc:
+    name: Score benchmark tiles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run TileSmith QC
+        id: tilesmith
+        uses: Kleeblatt-space/tilesmith-actions@feature/tilesmith-qc-implementation
+        with:
+          api-key: ${{ secrets.TILESMITH_API_KEY }}
+          paths: 'assets/base/**,assets/hd/**'
+          fail-on: never
+          max-files: '20'
+
+      - name: Upload TileSmith report and overlays
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tilesmith-qc-report
+          path: tilesmith-report/
+          if-no-files-found: warn
+
+      - name: Publish outputs
+        if: always()
+        run: |
+          echo "Production: ${{ steps.tilesmith.outputs.production }}"
+          echo "Review: ${{ steps.tilesmith.outputs.review }}"
+          echo "Reject: ${{ steps.tilesmith.outputs.reject }}"
+          echo "Average: ${{ steps.tilesmith.outputs.avg }}"
