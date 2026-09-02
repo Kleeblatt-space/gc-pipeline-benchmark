@@ -1,43 +1,97 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/reference/configuration-reference/
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#jobs-overview & https://circleci.com/docs/reference/configuration-reference/#jobs
-jobs:
-  test:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/guides/execution-managed/executor-intro/ & https://circleci.com/docs/reference/configuration-reference/#executor-job
-    docker:
-      # Specify the version you desire here
-      # See: https://circleci.com/developer/images/image/cimg/node
-      - image: cimg/node:current
+orbs:
+  node: circleci/node@5.0
 
-    # Add steps to the job
-    # See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#steps-overview & https://circleci.com/docs/reference/configuration-reference/#steps
+jobs:
+  run-benchmark:
+    docker:
+      - image: cimg/node:22.0
     steps:
-      # Checkout the code as the first step.
       - checkout
       - restore_cache:
-          # See the configuration reference documentation for more details on using restore_cache and save_cache steps
-          # https://circleci.com/docs/reference/configuration-reference/?section=reference#save_cache
           keys:
-            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      - run:
-          name: install packages
-          command: npm ci
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm ci
       - save_cache:
-          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
-            - ~/.npm
-      - run:
-          name: Run Tests
-          command: npm run test
+            - node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm run generate
+      - run: npm run ground-truth
+      - run: npm run benchmark
+      - run: npm run validate
+      - persist_to_workspace:
+          root: .
+          paths:
+            - public/benchmark/results.json
 
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
+  publish-results:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - attach_workspace:
+          at: .
+      - add_ssh_keys:
+          fingerprints:
+            # You will need to add a deploy key in CircleCI project settings
+            - "YOUR_SSH_KEY_FINGERPRINT_HERE" 
+      - run:
+          name: Configure Git
+          command: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+      - run:
+          name: Commit and push results
+          command: |
+            git add public/benchmark/results.json
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: publish benchmark results [skip ci]"
+              git push origin HEAD:${CIRCLE_BRANCH}
+            else
+              echo "No changes to commit."
+            fi
+
+  tilesmith-qc:
+    docker:
+      - image: cimg/node:22.0
+    steps:
+      - checkout
+      - run:
+          name: Verify TileSmith secret
+          command: |
+            if [ -n "$TILESMITH_API_KEY" ]; then
+              echo "TILESMITH_API_KEY=present"
+            else
+              echo "TILESMITH_API_KEY=missing"
+              exit 1
+            fi
+      # Note: Since this uses a specific GitHub Action, we might need to use the CLI or a Docker image provided by Kleeblatt-space
+      # For now, we'll assume you can run the logic via npx or a provided script. 
+      # If 'Kleeblatt-space/tilesmith-actions' has a CLI, you would call it here.
+      - run:
+          name: Run TileSmith QC (Placeholder)
+          command: |
+            echo "Running TileSmith QC on assets..."
+            # Replace this with the actual CLI command for the tilesmith action if available
+            # e.g., npx @kleeblatt/tilesmith-qc --api-key $TILESMITH_API_KEY --paths 'assets/base/**,assets/hd/**'
+      - store_artifacts:
+          path: tilesmith-report/
+
 workflows:
-  orb-free-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  benchmark-pipeline:
     jobs:
-      - test
+      - run-benchmark
+      - publish-results:
+          requires:
+            - run-benchmark
+          filters:
+            branches:
+              only: main # Or whichever branch you want to auto-publish from
+  
+  asset-quality-check:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *" # Example: Run daily, or remove to run on PRs only
+    jobs:
+      - tilesmith-qc
