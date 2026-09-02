@@ -17,6 +17,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify TileSmith secret availability
+        env:
+          TILESMITH_API_KEY: ${{ secrets.TILESMITH_API_KEY }}
+        run: |
+          if [ -n "$TILESMITH_API_KEY" ]; then
+            echo "TILESMITH_API_KEY=present"
+          else
+            echo "TILESMITH_API_KEY=missing"
+            exit 1
+          fi
+
       - name: Run TileSmith QC
         id: tilesmith
         uses: Kleeblatt-space/tilesmith-actions@feature/tilesmith-qc-implementation
